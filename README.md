@@ -46,80 +46,42 @@
 
 </details>
 
-## THE CYBERCORE SYSTEMS FRAMEWORK
+## CYBERCORE SYSTEMS / LIVE TOPOLOGY
 
 <p align="center">
-  <a href="https://github.com/cybercore-tech/cybercore"><img src="https://cybercore-tech.github.io/assets/tile-cybercore.svg" width="216" alt="CYBERCORE — shared schemas, palette, design tokens"></a>
-  <a href="https://github.com/cybercore-tech/cybercore-mission-control"><img src="https://cybercore-tech.github.io/assets/tile-cybercore.svg" width="216" alt="MISSION CONTROL — fleet visibility and durable events"></a>
-  <a href="https://github.com/cybercore-tech/cyberplug"><img src="https://cybercore-tech.github.io/assets/tile-cyberplug.svg" width="216" alt="CYBERPLUG — Omarchy plugin distribution"></a>
+  <a href="https://github.com/cybercore-tech/cybercore"><img src="https://cybercore-tech.github.io/assets/profile/cybercore-systems-flow.svg" alt="Clickable Cybercore Tech systems topology" width="1200"></a>
 </p>
 
+<p align="center"><sub>CLICK A NODE TO ENTER THE SYSTEM. THE TEXT LINKS BELOW ARE THE DIRECT NAVIGATION FALLBACK.</sub></p>
+
 <p align="center">
-  <a href="https://github.com/cybercore-tech/agentforge"><strong>AGENTFORGE</strong></a> ·
+  <a href="https://github.com/cybercore-tech/cybercore"><strong>CYBERCORE</strong></a> ·
   <a href="https://github.com/cybercore-tech/cyberdeck"><strong>CYBERDECK</strong></a> ·
+  <a href="https://github.com/cybercore-tech/cybermeta"><strong>CYBERMETA</strong></a> ·
+  <a href="https://github.com/cybercore-tech/cyberplug"><strong>CYBERPLUG</strong></a> ·
+  <a href="https://github.com/cybercore-tech/cyberterm"><strong>CYBERTERM</strong></a>
+</p>
+
+<details>
+<summary><strong>EXTENDED SYSTEMS / OPERATOR RELAY</strong></summary>
+
+<p align="center">
+  <a href="https://github.com/cybercore-tech/cybercore-mission-control"><strong>MISSION CONTROL</strong></a> ·
+  <a href="https://github.com/cybercore-tech/agentforge"><strong>AGENTFORGE</strong></a> ·
   <a href="https://github.com/cybercore-tech/apexdaemon"><strong>APEXDAEMON</strong></a> ·
   <a href="https://github.com/cybercore-tech/diagprint"><strong>DIAGPRINT</strong></a> ·
-  <a href="https://github.com/cybercore-tech/gateflow"><strong>GATEFLOW</strong></a>
+  <a href="https://github.com/cybercore-tech/gateflow"><strong>GATEFLOW</strong></a> ·
+  <a href="https://github.com/cybercore-tech/wraithflow"><strong>WRAITHFLOW</strong></a> ·
+  <a href="https://github.com/cybercore-tech/vortexwall"><strong>VORTEXWALL</strong></a> ·
+  <a href="https://github.com/cybercore-tech/cybervault"><strong>CYBERVAULT</strong></a>
 </p>
-
-<p align="center">
-  <a href="https://github.com/cybercore-tech/wraithflow"><img src="https://cybercore-tech.github.io/assets/tile-wraithflow.svg" width="216" alt="WRAITHFLOW — config-driven TCP proxy pipelines"></a>
-  <a href="https://github.com/cybercore-tech/vortexwall"><img src="https://cybercore-tech.github.io/assets/tile-vortexwall.svg" width="216" alt="VORTEXWALL — defensive network control"></a>
-  <a href="https://github.com/cybercore-tech/cybervault"><img src="https://cybercore-tech.github.io/assets/tile-cybervault.svg" width="216" alt="CYBERVAULT — encrypted secrets"></a>
-</p>
-
-### CORE REPOSITORIES / MIGRATION SURFACE
-
-These are the five repositories that define the first Cybercore Tech migration surface. The compact stats describe each system’s role until the organization repositories are live and GitHub-native stars, forks, issues, and release badges can populate automatically.
-
-<table>
-  <tr>
-    <th>REPOSITORY</th>
-    <th>ROLE</th>
-    <th>PRIMARY SURFACE</th>
-    <th>STATUS</th>
-    <th>SIGNAL</th>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/cybercore-tech/cybercore"><strong>CYBERCORE</strong></a></td>
-    <td>Shared schema, themes, tokens, and paths</td>
-    <td><code>RUST / JSON</code></td>
-    <td><code>FOUNDATION</code></td>
-    <td><code>72 THEMES</code></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/cybercore-tech/cyberdeck"><strong>CYBERDECK</strong></a></td>
-    <td>Operator desktop and workflow surface</td>
-    <td><code>RUST / QML</code></td>
-    <td><code>OMARCHY</code></td>
-    <td><code>DESKTOP</code></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/cybercore-tech/cybermeta"><strong>CYBERMETA</strong></a></td>
-    <td>Knowledge, metadata, and project index layer</td>
-    <td><code>JSON / MARKDOWN</code></td>
-    <td><code>SCHEMA</code></td>
-    <td><code>INDEXED</code></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/cybercore-tech/cyberplug"><strong>CYBERPLUG</strong></a></td>
-    <td>Omarchy plugin distribution and integration</td>
-    <td><code>SHELL / RUST</code></td>
-    <td><code>PLUGIN</code></td>
-    <td><code>OMARCHY</code></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/cybercore-tech/cyberterm"><strong>CYBERTERM</strong></a></td>
-    <td>Terminal-first operator tooling</td>
-    <td><code>RUST / CLI</code></td>
-    <td><code>TOOLING</code></td>
-    <td><code>TERMINAL</code></td>
-  </tr>
-</table>
+</details>
 
 ## OPEN SYSTEMS / OPEN SIGNAL
 
-Cybercore Tech is built with appreciation for the communities, languages, kernels, and tools that make this work possible.
+<p align="center">
+  <a href="https://omarchy.org/"><img src="https://cybercore-tech.github.io/assets/profile/cybercore-open-signal.svg" alt="Clickable open systems and community signal network" width="1200"></a>
+</p>
 
 <p align="center">
   <a href="https://omarchy.org/">OMARCHY</a> ·
