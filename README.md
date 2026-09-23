@@ -15,8 +15,12 @@
   <a href="https://github.com/cybercore-tech?tab=repositories"><strong>VIEW THE REPOSITORIES ↗</strong></a>
 </p>
 
-<details open>
-<summary><strong>THEME CHOOSER / 72 THEMES + CYBERCORE TECH MASTER MIX</strong></summary>
+<p align="center">
+  <a href="https://cybercore-tech.github.io/?theme=cybercore-tech"><img src="https://cybercore-tech.github.io/assets/profile/cybercore-theme-spectrum.svg" alt="Cybercore Tech theme matrix with six clickable families" width="1200"></a>
+</p>
+
+<details>
+<summary><strong>OPEN THEME MATRIX / 72 THEMES + CYBERCORE TECH MASTER MIX</strong></summary>
 
 <p><a href="https://cybercore-tech.github.io/?theme=cybercore-tech"><strong>◆ CYBERCORE TECH / MASTER MIX</strong></a> — the median synthesis of all 72 Cybercore schema palettes.</p>
 
