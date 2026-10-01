@@ -1,0 +1,3 @@
+# Local wrangler / npm state (never commit or deploy)
+.wrangler/
+node_modules/
