@@ -1,0 +1,9 @@
+# Never publish repository internals or tooling (the Sep 24 hand upload
+# included .git/, which exposed the old repo's history and author email).
+.git
+.github
+.gitignore
+README.md
+wrangler.jsonc
+node_modules
+.wrangler
