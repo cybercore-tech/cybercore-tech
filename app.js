@@ -27,8 +27,8 @@ const REPO_LABELS = ['OPEN THE CORE','INSPECT THE MISSION','ENTER THE HUB','OPEN
 const RESOURCE_DETAILS = {
   containers: { title:'CONTAINERS', description:'Services and development stacks organized as repeatable, inspectable surfaces.', details:'CONTAINERS\n├── services\n├── development stacks\n├── repeatable environments\n└── operator documentation', link:'https://github.com/cybercore-tech?tab=repositories&q=container' },
   tooling: { title:'TOOLING', description:'The terminal-first layer: small tools with clear contracts, useful output, and focused jobs.', details:'TOOLING\n├── CYBERTERM\n├── DIAGPRINT\n├── GATEFLOW\n└── SUPPORTING UTILITIES', link:'https://github.com/cybercore-tech/cybercore' },
-  hyprland: { title:'HYPRLAND', description:'Specialized workspaces and desktop flows for a focused Omarchy operating surface.', details:'HYPRLAND\n├── WORKSPACES\n├── WINDOWS\n├── KEYBINDINGS\n└── THEME / SHELL INTEGRATION', link:'https://github.com/darkstardevx/omarchy-darkbox-dotfiles' },
-  darkbox: { title:'DARKBOX DOTFILES', description:'The current operator-facing desktop configuration tree, kept visible so the environment is explainable and reproducible.', details:'omarchy-darkbox-dotfiles/\n├── hypr/\n│   ├── hyprland.lua\n│   ├── bindings.lua\n│   ├── monitors.lua\n│   ├── input.lua\n│   └── looknfeel.lua\n├── ghostty/\n│   ├── config\n│   └── tab-style.css\n├── omarchy/\n│   ├── shell.toml\n│   ├── aliases\n│   └── workspace-profiles/\n├── waybar/\n├── yazi/\n└── starship.toml', link:'https://github.com/darkstardevx/omarchy-darkbox-dotfiles' }
+  hyprland: { title:'HYPRLAND', description:'Specialized workspaces and desktop flows for a focused Omarchy operating surface.', details:'HYPRLAND\n├── WORKSPACES\n├── WINDOWS\n├── KEYBINDINGS\n└── THEME / SHELL INTEGRATION' },
+  darkbox: { title:'DARKBOX DOTFILES', description:'The current operator-facing desktop configuration tree, kept visible so the environment is explainable and reproducible.', details:'darkbox dotfiles/\n├── hypr/\n│   ├── hyprland.lua\n│   ├── bindings.lua\n│   ├── monitors.lua\n│   ├── input.lua\n│   └── looknfeel.lua\n├── ghostty/\n│   ├── config\n│   └── tab-style.css\n├── omarchy/\n│   ├── shell.toml\n│   ├── aliases\n│   └── workspace-profiles/\n├── waybar/\n├── yazi/\n└── starship.toml' }
 };
 let schema = FALLBACK_SCHEMA;
 let themeIndex = {};
@@ -103,7 +103,7 @@ function openProjectModal(index) {
   $('#modalRepo').href = repoUrl(repo); $('#projectModal').hidden = false;
 }
 
-function openResourceModal(name) { const resource = RESOURCE_DETAILS[name]; if (!resource) return; $('#resourceKicker').textContent = `${resource.title} / SURFACE PROFILE`; $('#resourceTitle').textContent = resource.title; $('#resourceDescription').textContent = resource.description; $('#resourceDetails').textContent = resource.details; $('#resourceLink').href = resource.link; $('#resourceModal').hidden = false; }
+function openResourceModal(name) { const resource = RESOURCE_DETAILS[name]; if (!resource) return; $('#resourceKicker').textContent = `${resource.title} / SURFACE PROFILE`; $('#resourceTitle').textContent = resource.title; $('#resourceDescription').textContent = resource.description; $('#resourceDetails').textContent = resource.details; $('#resourceLink').hidden = !resource.link; if (resource.link) $('#resourceLink').href = resource.link; $('#resourceModal').hidden = false; }
 function closeModals() { document.querySelectorAll('.modal-overlay').forEach((modal) => { modal.hidden = true; }); }
 
 function openThemeCreator() {
