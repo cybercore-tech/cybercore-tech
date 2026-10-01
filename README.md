@@ -99,10 +99,11 @@
 
 <p align="center">
   <a href="mailto:dev@cybercoretech.net">DIRECT CONTACT ↗</a> ·
-  <a href="https://gitlab.com/darkstardevx">GITLAB ↗</a> ·
+  <a href="mailto:security@cybercoretech.net">SECURITY ↗</a> ·
+  <a href="https://discord.gg/vBMcK5wAx">DISCORD ↗</a> ·
   <a href="https://dev.to/cybercore-tech">DEV.TO ↗</a> ·
   <a href="https://www.reddit.com/user/cybercore_sh/">REDDIT ↗</a> ·
-  <a href="https://discord.gg/9rw6AsFgw">DISCORD ↗</a>
+  <a href="https://buymeacoffee.com/cybercoretech">BUY ME A COFFEE ↗</a>
 </p>
 
 <p align="center"><sub>CYBERCORE TECH / HUMAN-TESTED SYSTEMS / PUBLIC SOURCE / MIT</sub></p>
