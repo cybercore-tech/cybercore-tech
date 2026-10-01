@@ -1,0 +1,17 @@
+// Cloudflare Worker that serves cybercoretech.net (static assets only).
+// Workers Builds deploys this on every push to main. The name, domain and
+// URL settings match what is already deployed, so the first automated
+// deploy changes only the files.
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "snowy-sun-99c7",
+  "compatibility_date": "2026-09-24",
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    { "pattern": "cybercoretech.net", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "preview_urls": true
+}
