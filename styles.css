@@ -91,3 +91,6 @@ body::after { content:""; position:fixed; inset:0; pointer-events:none; z-index:
 /* Shared contact block: contact details come from cybercore-tech.github.io/data/contact.json */
 .footer-cc { grid-column:2 / -1; }
 @media (max-width:720px) { .footer-cc { grid-column:auto; } }
+
+/* A resource with no public source hides its OPEN SOURCE button (the .button display rule would otherwise override [hidden]). */
+#resourceLink[hidden] { display:none; }
