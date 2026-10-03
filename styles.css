@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 :root { --bg:#09080f; --white:#f0f0f2; --acid:#39ff33; --pink:#ff147f; --purple:#8a22e2; --cyan:#00e5ff; --orange:#ff9000; --red:#f1142d; --panel:#16151f; --line:#32303e; --muted:#807f8b; --pointer-x:50vw; --pointer-y:32vh; --shell:min(1180px, calc(100% - 48px)); --radius:18px; --mono:'Space Mono', ui-monospace, monospace; --sans:'DM Sans', system-ui, sans-serif; }
 * { box-sizing:border-box; }

@@ -78,20 +78,30 @@ function renderThemeDropdown() {
 function closeThemeDropdown() { $('#themeDropdown').hidden = true; $('#themePickerButton').setAttribute('aria-expanded', 'false'); }
 function openThemeDropdown() { const button = $('#themePickerButton'); const dropdown = $('#themeDropdown'); const rect = button.getBoundingClientRect(); dropdown.style.top = `${rect.bottom + 6}px`; dropdown.style.left = `${Math.max(8, Math.min(rect.left, innerWidth - 248))}px`; dropdown.hidden = false; button.setAttribute('aria-expanded', 'true'); }
 
-function projectCard(project, index) {
-  const [name, category, description, repo, art] = project;
-  const isHidden = index >= 10 && !showAll;
-  const passesFilter = activeFilter === 'all' || slug(category) === activeFilter || (activeFilter === 'active' && category === 'Active');
-  const details = `${name.toUpperCase()}\n\nCATEGORY: ${category.toUpperCase()}\nSURFACE: CYBERCORE TECH\nSTATUS: TRACKED IN THE GRID`;
-  const fallback = `<div class="fallback-art"><span>${String(index + 1).padStart(2, '0')}</span><div class="fallback-copy"><strong>${name.toUpperCase()}</strong><small>${FALLBACK_SNIPPETS[name] || description.toUpperCase()}</small></div></div>`;
-  return `<article class="project-card${index < 10 ? ' top-card' : ''}${isHidden || !passesFilter ? ' is-hidden' : ''}" data-category="${slug(category)}" data-project="${index}"><div class="project-art">${art ? `<img src="assets/${art}" alt="${name} project card">` : fallback}</div><div class="project-meta"><i class="project-dot"></i>${category} system</div><h3>${name}</h3><p>${description}</p><div class="project-actions"><button class="project-open" type="button" data-project="${index}">PROFILE ↗</button><a class="project-link" href="${repoUrl(repo)}" target="_blank" rel="noreferrer">${REPO_LABELS[index]} <span>↗</span></a></div><template class="project-detail">${details}</template></article>`;
+const ICON_PATHS = {
+ Core:'<rect x="6" y="6" width="20" height="20" rx="3"/><path d="M11 1v5m10-5v5M11 26v5m10-5v5M1 11h5m-5 10h5m20-10h5m-5 10h5"/><rect x="11" y="11" width="10" height="10" rx="1"/>',
+ Security:'<path d="M16 2 28 7v10c0 6-7 11-12 14C11 28 4 23 4 17V7z"/><path d="m10 16 4 4 8-9"/>',
+ Tools:'<rect x="2" y="4" width="28" height="24" rx="3"/><path d="m8 11 5 5-5 5m9 0h7"/>',
+ Active:'<path d="M16 2v5m0 18v5M2 16h5m18 0h5"/><circle cx="16" cy="16" r="9"/><path d="m11 17 4-7 3 12 3-6"/>'
+};
+const systemIcon = category => `<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON_PATHS[category]||ICON_PATHS.Core}</svg>`;
+function matchesProject(project, index) {
+ const query = document.querySelector('#systemSearch')?.value.trim().toLowerCase() || '';
+ return (showAll || index < 10 || query || activeFilter !== 'all') && (activeFilter === 'all' || slug(project[1]) === activeFilter) && project.slice(0,3).join(' ').toLowerCase().includes(query);
 }
-
+function projectCard(project, index) {
+ const [name, category, description, repo] = project;
+ const signal = {Core:'var(--cyan)',Security:'var(--pink)',Tools:'var(--acid)',Active:'var(--purple)'}[category];
+ return `<article class="project-card${matchesProject(project,index)?'':' is-hidden'}" data-category="${slug(category)}" style="--card-signal:${signal}"><div class="project-art"><span class="system-emblem">${systemIcon(category)}</span><span class="system-code">SYS / ${String(index+1).padStart(2,'0')}</span></div><div class="project-meta">${category} / CYBERCORE GRID</div><h3>${name}</h3><p>${description}</p><div class="project-actions"><button class="project-open" type="button" data-project="${index}">Inspect system</button><a class="project-link" href="${repoUrl(repo)}" target="_blank" rel="noreferrer">Source</a></div></article>`;
+}
 function renderProjects() {
-  const visible = PROJECTS.filter((project, index) => (showAll || index < 10) && (activeFilter === 'all' || slug(project[1]) === activeFilter || (activeFilter === 'active' && project[1] === 'Active'))).length;
-  $('#projectGrid').innerHTML = PROJECTS.map(projectCard).join('');
-  $('#visibleCount').textContent = visible; $('#totalCount').textContent = PROJECTS.length;
-  $('#showMore').innerHTML = showAll ? 'COLLAPSE TO TOP 10 <span>↑</span>' : 'SHOW THE FULL INVENTORY <span>↓</span>';
+ const visible = PROJECTS.filter(matchesProject).length;
+ $('#projectGrid').innerHTML = PROJECTS.map(projectCard).join('');
+ $('#visibleCount').textContent = visible; $('#totalCount').textContent = PROJECTS.length;
+ $('#emptySystems').hidden = visible !== 0;
+ $('#showMore').textContent = showAll ? 'Show featured systems' : 'Explore all 29 systems';
+ $('#showMore').hidden = !!$('#systemSearch').value || activeFilter !== 'all';
+ document.querySelectorAll('.filter').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===activeFilter)));
 }
 
 function openProjectModal(index) {
@@ -140,17 +150,17 @@ $('#openThemeCreator').addEventListener('click', openThemeCreator);
 $('#saveTheme').addEventListener('click', saveCustomTheme); $('#exportTheme').addEventListener('click', exportCustomTheme); $('#resetTheme').addEventListener('click', openThemeCreator);
 $('#showMore').addEventListener('click', () => { showAll = !showAll; renderProjects(); });
 document.querySelectorAll('.filter').forEach((button) => button.addEventListener('click', () => { document.querySelectorAll('.filter').forEach((item) => item.classList.remove('active')); button.classList.add('active'); activeFilter = button.dataset.filter; renderProjects(); }));
-$('#projectGrid').addEventListener('click', (event) => { const button = event.target.closest('[data-project]'); if (button) openProjectModal(Number(button.dataset.project)); });
+$('#projectGrid').addEventListener('click', (event) => { const button = event.target.closest('button[data-project]'); if (button) openProjectModal(Number(button.dataset.project)); });
 document.querySelectorAll('[data-resource]').forEach((button) => button.addEventListener('click', () => openResourceModal(button.dataset.resource)));
 document.querySelectorAll('[data-close-modal]').forEach((button) => button.addEventListener('click', closeModals));
 document.querySelectorAll('.modal-overlay').forEach((overlay) => overlay.addEventListener('click', (event) => { if (event.target === overlay) closeModals(); }));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeModals(); closeThemeDropdown(); } });
-$('#copyInstall').addEventListener('click', async () => { await navigator.clipboard.writeText('cargo add cybercore --git https://github.com/cybercore-tech/cybercore'); $('#copyInstall').textContent = 'COPIED'; setTimeout(() => { $('#copyInstall').textContent = 'COPY'; }, 1400); });
+$('#copyInstall').addEventListener('click', async () => { try { await navigator.clipboard.writeText('cargo add cybercore --git https://github.com/cybercore-tech/cybercore'); $('#copyInstall').textContent = 'COPIED'; } catch { $('#copyInstall').textContent = 'SELECT COMMAND TO COPY'; } setTimeout(() => { $('#copyInstall').textContent = 'COPY'; }, 2200); });
 $('#projectForm').addEventListener('submit', (event) => { event.preventDefault(); const data = new FormData(event.currentTarget); const subject = `Cybercore Tech project inquiry — ${data.get('type')}`; const body = [`NAME: ${data.get('name')}`, `EMAIL: ${data.get('email')}`, `PROJECT TYPE: ${data.get('type')}`, '', 'BRIEF:', data.get('brief')].join('\n'); window.location.href = `mailto:dev@cybercoretech.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; const button = event.currentTarget.querySelector('button[type="submit"]'); button.textContent = 'INQUIRY PREPARED'; setTimeout(() => { button.textContent = 'PREPARE INQUIRY ↗'; }, 2200); });
 [['#framework .eyebrow','02 / THE FOUNDATION'], ['#systems .eyebrow','03 / THE ECOSYSTEM'], ['.architecture-section .eyebrow','04 / HOW IT CONNECTS'], ['#about .eyebrow','05 / ABOUT CYBERCORE TECH'], ['#services .eyebrow','06 / SERVICES'], ['#proof .eyebrow','07 / QUALITY SYSTEM'], ['#work .eyebrow','08 / SELECTED BUILDS'], ['#connect .eyebrow','09 / CONNECT']].forEach(([selector, label]) => { const element = $(selector); if (element) element.textContent = label; });
 document.querySelector('.menu-button').addEventListener('click', (event) => { const open = event.currentTarget.getAttribute('aria-expanded') === 'true'; event.currentTarget.setAttribute('aria-expanded', String(!open)); document.querySelector('.main-nav').classList.toggle('mobile-open', !open); });
-const scrollToHash = () => { if (!location.hash) return; const target = document.querySelector(location.hash); if (target) target.scrollIntoView({ block:'start' }); };
-renderProjects(); loadSchema().then(() => setTimeout(scrollToHash, 0));
+const scrollToHash = () => { if (!location.hash) return; const target = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (target) target.scrollIntoView({ block:'start' }); };
+renderProjects(); const schemaReady = loadSchema(); schemaReady.then(() => setTimeout(scrollToHash, 0));
 
 let pointerFrame = 0;
 window.addEventListener('pointermove', (event) => {
@@ -161,3 +171,5 @@ window.addEventListener('pointermove', (event) => {
     pointerFrame = 0;
   });
 }, { passive: true });
+
+document.querySelectorAll('.foundation-card .card-icon').forEach((el,i)=>{el.innerHTML=systemIcon(['Core','Active','Tools','Security'][i]);});

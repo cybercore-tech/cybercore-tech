@@ -107,3 +107,15 @@
 </p>
 
 <p align="center"><sub>CYBERCORE TECH / HUMAN-TESTED SYSTEMS / PUBLIC SOURCE / MIT</sub></p>
+
+## Interactive command-center redesign
+
+Preview from the repository root with `python -m http.server 8791 --bind 127.0.0.1`, then open http://127.0.0.1:8791.
+
+- `command.css` layers the new typography, responsive layout, and instrument-panel styling over the original shared theme styles.
+- `command.js` supplies command search (Ctrl/Cmd+K), the local JSON contract lab, revision-checked repairs, core-node inspection, and reduced-motion-aware pointer effects.
+- `assets/identity/` contains the new SVG/PNG identity, functional icons, original reactor PNG, and bundled fonts. Fonts are Oxanium, IBM Plex Sans, and JetBrains Mono, distributed under the SIL Open Font License.
+- The lab is a deterministic browser simulation. It does not execute Rust, shell commands, or remote mutations. Inquiry submission retains the existing mailto workflow.
+- Cloudflare configuration and the deployment route are preserved. No live deployment was performed during the local preview redesign.
+
+Validation: JavaScript syntax, local asset references, browser error capture, desktop/tablet/mobile layouts, command search, project inspection, fault injection, successful repair, and stale-repair rejection.

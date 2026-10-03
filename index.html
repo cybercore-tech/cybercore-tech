@@ -6,29 +6,31 @@
     <meta name="description" content="Cybercore Tech — a connected systems framework for Rust tools, security utilities, Omarchy extensions, and operator workflows.">
     <meta name="theme-color" content="#06080f">
     <title>Cybercore Tech — Systems for the dark edge</title>
-    <link rel="icon" href="assets/core/icons/cybercore-icon-32.png">
+    <link rel="icon" href="assets/identity/mark.svg">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="command.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="shell header-inner">
         <a class="brand" href="#top" aria-label="Cybercore Tech home">
-          <span class="brand-logo-shell"><img src="assets/core/cybercore-wordmark-compact.svg" alt="Cybercore" class="brand-mark"></span>
+          <span class="brand-logo-shell"><img src="assets/identity/wordmark.svg" alt="Cybercore" class="brand-mark"></span>
           <span class="brand-divider">/</span>
           <span class="brand-sub">TECH</span>
         </a>
         <nav class="main-nav" aria-label="Primary navigation">
-          <a href="#framework">Framework</a>
-          <a href="#status">Status</a>
+          <a href="#lab">Lab</a><a href="#framework">Framework</a>
+
           <a href="#systems">Systems</a>
           <a href="#work">Work</a>
-          <a href="#about">About</a>
+
           <a href="#services">Services</a>
-          <a href="#proof">Proof</a>
+
           <a href="#connect">Connect</a>
         </nav>
-        <div class="header-actions">
+        <div class="header-actions"><button class="command-trigger" type="button" id="openCommand" aria-label="Search systems and navigation">SEARCH <kbd>⌘ K</kbd></button>
           <div class="theme-picker-wrap"><button class="theme-picker-button" id="themePickerButton" type="button" aria-haspopup="listbox" aria-expanded="false"><span id="themeLabel">CYBERCORE TECH</span><span class="caret-down">▾</span></button><div class="theme-dropdown" id="themeDropdown" role="listbox" hidden></div></div>
           <button class="header-theme-add" id="openThemeCreator" type="button">+ THEME</button>
           <a class="header-github" href="https://github.com/cybercore-tech" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
@@ -41,23 +43,28 @@
       <section class="hero shell" id="top">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-mark"></span> CYBERCORE SYSTEMS FRAMEWORK</p>
-          <h1>Build for the<br><em>dark edge.</em></h1>
+          <div class="hero-coordinate" aria-hidden="true">CC / 001<span>INDEPENDENT SYSTEMS ENGINEERING</span></div><h1>ENGINEER<br>THE <em>EDGE.</em></h1>
           <p class="hero-lede">A connected ecosystem of Rust-first tools, security systems, Omarchy extensions, and operator workflows built around one shared source of truth.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#systems">Explore the systems <span>↓</span></a><a class="button button-quiet" href="https://github.com/cybercore-tech/cybercore" target="_blank" rel="noreferrer">Read Cybercore <span>↗</span></a></div>
-          <div class="hero-signal"><span class="signal-dot"></span><span>SCHEMA ONLINE</span><i></i><span>RUST / LINUX / OMARCHY</span></div>
+          <div class="hero-actions"><a class="button button-primary" href="#systems">Explore systems</a><a class="button button-quiet" href="#lab">Enter the lab</a></div>
+          <div class="hero-signal"><span class="signal-dot"></span><span>SCHEMA-DRIVEN / OPEN SOURCE</span><i></i><span>RUST / LINUX / OMARCHY</span></div>
         </div>
-        <div class="hero-console" aria-label="Cybercore live schema summary">
+        <div class="hero-reticle" aria-hidden="true"><span>CORE / CC-01</span><b>SCHEMA → SURFACE</b></div><div class="hero-artwork" aria-hidden="true"><img src="assets/identity/core-reactor.png" alt=""></div><div class="hero-console" aria-label="Cybercore live schema summary">
           <div class="console-head"><span><b></b><b></b><b></b></span><span class="console-label">cybergrid / schema.v2</span><span class="console-status">ACTIVE</span></div>
           <div class="console-body">
-            <div class="console-kicker">THE SHARED SURFACE</div>
+            <div class="console-kicker">CORE UPLINK / SELECT A NODE</div>
             <div class="console-title">One core.<br><span>Many systems.</span></div>
-            <div class="console-graph"><div class="graph-core"><img src="assets/core/icons/cybercore-icon-128.svg" alt=""><span>CYBERCORE</span></div><span class="graph-line line-a"></span><span class="graph-line line-b"></span><span class="graph-line line-c"></span><span class="graph-node node-a">SCHEMA</span><span class="graph-node node-b">TOKENS</span><span class="graph-node node-c">PATHS</span></div>
-            <div class="console-foot"><span>schema_version <b id="schemaVersion">2</b></span><span>themes <b id="themeCount">—</b></span><span>systems <b id="systemCount">—</b></span></div>
+            <div class="console-graph"><div class="graph-core"><img src="assets/identity/mark.svg" alt=""><span>CYBERCORE</span></div><span class="graph-line line-a"></span><span class="graph-line line-b"></span><span class="graph-line line-c"></span><button class="graph-node node-a" type="button" data-core-view="schema">SCHEMA</button><button class="graph-node node-b" type="button" data-core-view="tokens">TOKENS</button><button class="graph-node node-c" type="button" data-core-view="paths">PATHS</button></div>
+            <pre class="core-readout" id="coreReadout" aria-live="polite">SELECT A NODE TO INSPECT ITS CONTRACT</pre><div class="console-foot"><span>schema_version <b id="schemaVersion">2</b></span><span>themes <b id="themeCount">—</b></span><span>systems <b id="systemCount">—</b></span></div>
           </div>
         </div>
       </section>
 
-      <section class="signal-strip"><div class="shell signal-strip-inner"><span>SCHEMA</span><i></i><span>PALETTE</span><i></i><span>DESIGN TOKENS</span><i></i><span>CANONICAL PATHS</span><i></i><span>ZERO DRIFT</span></div></section>
+      <div class="telemetry-strip shell"><span class="telemetry-label">LOCAL EVENT STREAM</span><span id="eventStream" role="status">INITIALIZING THE GRID…</span><span class="telemetry-meta">CLIENT / NO REMOTE COMMANDS</span></div>
+      <section class="section shell lab-section" id="lab">
+ <div class="section-heading"><div><p class="eyebrow">INTERACTIVE / SYSTEM LAB</p><h2>Break the contract.<br><em>See the signal.</em></h2></div><p>Edit a Cybergrid configuration, scan it, and apply a revision-checked repair. This browser simulation changes only the editor below.</p></div>
+ <div class="lab-grid"><div class="lab-editor"><div class="lab-bar"><span>cybergrid / sandbox.json</span><span id="labRevision">r1</span><button id="resetLab" type="button">RESET</button></div><label class="sr-only" for="labInput">Editable Cybergrid configuration</label><textarea id="labInput" spellcheck="false"></textarea><div class="lab-controls"><button id="scanLab" class="button button-primary" type="button">Scan configuration</button><button id="breakLab" class="button button-quiet" type="button">Inject a fault</button></div></div><div class="lab-output"><div class="lab-bar"><span>DIAGNOSTIC OUTPUT</span><span id="labState" role="status">READY</span></div><div class="lab-tabs" role="tablist" aria-label="Diagnostic format"><button role="tab" aria-selected="true" aria-controls="labResult" id="tabTerminal" data-lab-tab="terminal">Terminal</button><button role="tab" aria-selected="false" aria-controls="labResult" id="tabJson" tabindex="-1" data-lab-tab="json">JSON</button></div><pre id="labResult" role="tabpanel" aria-labelledby="tabTerminal" tabindex="0"></pre><div class="lab-controls"><button id="fixLab" class="button button-quiet" type="button" disabled>Apply guarded repair</button><small id="labGuard">Scan to prepare a repair.</small></div></div></div>
+ </section>
+ <section class="signal-strip"><div class="shell signal-strip-inner"><span>SCHEMA</span><i></i><span>PALETTE</span><i></i><span>DESIGN TOKENS</span><i></i><span>CANONICAL PATHS</span><i></i><span>ZERO DRIFT</span></div></section>
 
       <section class="section shell status-section" id="status">
         <div class="section-heading compact"><div><p class="eyebrow">01 / LIVE SURFACE</p><h2>Signal is<br><em>green.</em></h2></div><p>A transparent browser-side check of the public Cybercore surface: schema, theme registry, interface assets, and the systems index all report in from this page.</p></div>
@@ -79,17 +86,18 @@
       </section>
 
       <section class="section systems-section" id="systems">
-        <div class="shell section-heading systems-heading"><div><p class="eyebrow">02 / THE ECOSYSTEM</p><h2>The systems<br><em>in the grid.</em></h2></div><p>From the core schema to network defense, each project has a job. The first ten are the active surface; keep scrolling for the full inventory.</p></div>
+        <div class="shell section-heading systems-heading"><div><p class="eyebrow">02 / THE ECOSYSTEM</p><h2>The systems<br><em>in the grid.</em></h2></div><p>From the core schema to network defense, each project has a job. Search the inventory, inspect a system, or explore the source.</p></div>
         <div class="shell category-rails"><div class="category-rail rail-cyan"><span>01</span><strong>CORE / PLATFORM / AUTOMATION</strong><small>SCHEMAS · PLUGINS · FLEET CONTROL</small></div><div class="category-rail rail-pink"><span>02</span><strong>SECURITY / NETWORKING / DATA CONTROL</strong><small>TRAFFIC CONTROL · PRIVACY · PERIMETER DEFENSE</small></div><div class="category-rail rail-acid"><span>03</span><strong>DEVELOPER / OBSERVABILITY / OPERATOR TOOLS</strong><small>DIAGNOSTICS · TERMINAL WORKFLOW · DEEP CUSTOMIZATION</small></div></div>
-        <div class="shell systems-toolbar"><div class="systems-count"><span id="visibleCount">10</span> visible / <span id="totalCount">—</span> tracked</div><div class="filters" role="group" aria-label="Filter systems"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="core">Core</button><button class="filter" data-filter="security">Security</button><button class="filter" data-filter="tools">Tools</button><button class="filter" data-filter="active">Active</button></div></div>
-        <div class="shell project-grid" id="projectGrid"></div>
+        <div class="shell systems-toolbar"><label class="system-search"><span>FIND A SYSTEM</span><input id="systemSearch" type="search" placeholder="Name, role, or category…"></label><div class="systems-count"><span id="visibleCount">10</span> visible / <span id="totalCount">—</span> tracked</div><div class="filters" role="group" aria-label="Filter systems"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="core">Core</button><button class="filter" data-filter="security">Security</button><button class="filter" data-filter="tools">Tools</button><button class="filter" data-filter="active">Active</button></div></div>
+        <div class="shell project-grid" id="projectGrid"></div><p class="shell empty-systems" id="emptySystems" hidden>No systems match. Try a different search or category.</p>
         <div class="shell systems-more"><button class="button button-quiet" id="showMore" type="button">Show the full inventory <span>↓</span></button></div>
       </section>
 
       <section class="section shell architecture-section">
+
         <div class="section-heading compact"><div><p class="eyebrow">03 / HOW IT CONNECTS</p><h2>A stack with<br><em>shared gravity.</em></h2></div><p>Cybercore keeps the foundation small and explicit. Projects can be independent at the edges while sharing the contracts that make the ecosystem feel like one system.</p></div>
-        <div class="architecture-map"><div class="map-core"><img src="assets/core/icons/cybercore-icon-128.svg" alt=""><strong>CYBERCORE</strong><small>SCHEMA / TOKENS / PATHS</small></div><div class="map-rail rail-top"><a href="https://github.com/cybercore-tech/cyberdeck" target="_blank" rel="noreferrer">CYBERDECK</a><a href="https://github.com/cybercore-tech/cyberplug" target="_blank" rel="noreferrer">CYBERPLUG</a><a href="https://github.com/cybercore-tech/apexdaemon" target="_blank" rel="noreferrer">APEXDAEMON</a></div><div class="map-rail rail-bottom"><a href="https://github.com/cybercore-tech/wraithflow" target="_blank" rel="noreferrer">WRAITHFLOW</a><a href="https://github.com/cybercore-tech/vortexwall" target="_blank" rel="noreferrer">VORTEXWALL</a><a href="https://github.com/cybercore-tech/ghostport" target="_blank" rel="noreferrer">GHOSTPORT</a></div><div class="map-line map-left"></div><div class="map-line map-right"></div></div>
-        <div class="resource-grid"><article class="resource-card resource-orange"><a class="resource-image" href="https://github.com/cybercore-tech?tab=repositories&q=container" target="_blank" rel="noreferrer"><img src="assets/containers-card.svg" alt="Containers card"></a><div class="resource-bar"><strong>CONTAINERS</strong><button type="button" data-resource="containers">INFO ↗</button></div></article><article class="resource-card resource-acid"><a class="resource-image" href="https://github.com/cybercore-tech/cybercore" target="_blank" rel="noreferrer"><img src="assets/tooling-card.svg" alt="Tooling card"></a><div class="resource-bar"><strong>TOOLING</strong><button type="button" data-resource="tooling">INFO ↗</button></div></article><article class="resource-card resource-cyan"><div class="resource-image"><img src="assets/hyprland-card.svg" alt="Hyprland card"></div><div class="resource-bar"><strong>HYPRLAND</strong><button type="button" data-resource="hyprland">INFO ↗</button></div></article><article class="resource-card resource-purple"><div class="resource-image"><img src="assets/darkbox-dotfiles-card.svg" alt="Darkbox dotfiles card"></div><div class="resource-bar"><strong>DARKBOX DOTFILES</strong><button type="button" data-resource="darkbox">INFO ↗</button></div></article></div>
+        <div class="architecture-map"><div class="map-core"><img src="assets/identity/mark.svg" alt=""><strong>CYBERCORE</strong><small>SCHEMA / TOKENS / PATHS</small></div><div class="map-rail rail-top"><a href="https://github.com/cybercore-tech/cyberdeck" target="_blank" rel="noreferrer">CYBERDECK</a><a href="https://github.com/cybercore-tech/cyberplug" target="_blank" rel="noreferrer">CYBERPLUG</a><a href="https://github.com/cybercore-tech/apexdaemon" target="_blank" rel="noreferrer">APEXDAEMON</a></div><div class="map-rail rail-bottom"><a href="https://github.com/cybercore-tech/wraithflow" target="_blank" rel="noreferrer">WRAITHFLOW</a><a href="https://github.com/cybercore-tech/vortexwall" target="_blank" rel="noreferrer">VORTEXWALL</a><a href="https://github.com/cybercore-tech/ghostport" target="_blank" rel="noreferrer">GHOSTPORT</a></div><div class="map-line map-left"></div><div class="map-line map-right"></div></div>
+        <div class="resource-grid"><article class="resource-card resource-orange"><a class="resource-image" href="https://github.com/cybercore-tech?tab=repositories&q=container" target="_blank" rel="noreferrer"><img src="assets/identity/core.svg" alt="Containers card"></a><div class="resource-bar"><strong>CONTAINERS</strong><button type="button" data-resource="containers">INFO ↗</button></div></article><article class="resource-card resource-acid"><a class="resource-image" href="https://github.com/cybercore-tech/cybercore" target="_blank" rel="noreferrer"><img src="assets/identity/terminal.svg" alt="Tooling card"></a><div class="resource-bar"><strong>TOOLING</strong><button type="button" data-resource="tooling">INFO ↗</button></div></article><article class="resource-card resource-cyan"><div class="resource-image"><img src="assets/identity/automation.svg" alt="Hyprland card"></div><div class="resource-bar"><strong>HYPRLAND</strong><button type="button" data-resource="hyprland">INFO ↗</button></div></article><article class="resource-card resource-purple"><div class="resource-image"><img src="assets/identity/security.svg" alt="Darkbox dotfiles card"></div><div class="resource-bar"><strong>DARKBOX DOTFILES</strong><button type="button" data-resource="darkbox">INFO ↗</button></div></article></div>
       </section>
 
       <section class="section shell about-section" id="about"><div class="about-layout"><div><p class="eyebrow">04 / ABOUT CYBERCORE TECH</p><h2>Technology with<br><em>intent.</em></h2></div><div class="about-copy"><span class="draft-label">CYBERCORE TECH / OUR APPROACH</span><p class="mission-draft">We build custom websites and digital systems for people and organizations that want technology to feel as capable as the work behind it. Using current tools, AI-assisted workflows, and human judgment, we turn complex ideas into clear, fast, dependable experiences.</p><p class="mission-draft secondary">AI helps move the heavy work forward—research, boilerplate, refactors, documentation, and another pass looking for weaknesses. The human still owns the direction, the design, the trade-offs, and the final call. Everything is run, reviewed, and tested in the real world before it is called finished.</p><p class="mission-quote">WORK SMART. UNDERSTAND THE RESULT. SHIP WITH CONFIDENCE.</p><p class="mission-draft secondary">Clear communication, thoughtful engineering, and a finish line defined by work that holds up after launch—not just a successful build.</p></div></div></section>
@@ -109,7 +117,7 @@
     <footer class="site-footer">
       <div class="footer-divider" aria-hidden="true"><img src="assets/core/cybercore-site-divider.svg" alt=""></div>
       <div class="shell footer-grid">
-        <div class="footer-identity"><a class="footer-logo" href="#top" aria-label="Cybercore Tech home"><img src="assets/core/cybercore-wordmark.svg" alt="Cybercore Tech logo"><span>TECH</span></a><p>SCHEMA-DRIVEN SYSTEMS FOR THE DARK EDGE</p></div>
+        <div class="footer-identity"><a class="footer-logo" href="#top" aria-label="Cybercore Tech home"><img src="assets/identity/wordmark.svg" alt="Cybercore Tech logo"><span>TECH</span></a><p>SCHEMA-DRIVEN SYSTEMS FOR THE DARK EDGE</p></div>
         <cybercore-contact class="footer-cc" bare><div class="footer-contact"><span class="footer-label">DIRECT CONTACT</span><a href="mailto:dev@cybercoretech.net">dev@cybercoretech.net</a></div></cybercore-contact>
       </div>
       <div class="shell ecosystem-footer">
@@ -129,7 +137,9 @@
     <div class="modal-overlay" id="projectModal" hidden><section class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-titlebar"><span class="modal-kicker">CYBERCORE / SYSTEM PROFILE</span><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div><div class="modal-body"><p class="eyebrow" id="modalCategory">SYSTEM</p><h2 id="modalTitle">Project</h2><p id="modalDescription"></p><div class="modal-meta" id="modalMeta"></div><pre id="modalDetails"></pre><div class="modal-actions"><a class="button button-primary" id="modalRepo" href="#" target="_blank" rel="noreferrer">OPEN REPOSITORY ↗</a><button class="button button-quiet" type="button" data-close-modal>Close</button></div></div></section></div>
     <div class="modal-overlay" id="resourceModal" hidden><section class="modal-window resource-modal-window" role="dialog" aria-modal="true" aria-labelledby="resourceTitle"><div class="modal-titlebar"><span class="modal-kicker">CYBERCORE / SURFACE</span><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div><div class="modal-body"><p class="eyebrow" id="resourceKicker">RESOURCE</p><h2 id="resourceTitle">Resource</h2><p id="resourceDescription"></p><pre id="resourceDetails"></pre><div class="modal-actions"><a class="button button-primary" id="resourceLink" href="#" target="_blank" rel="noreferrer">OPEN SOURCE ↗</a><button class="button button-quiet" type="button" data-close-modal>Close</button></div></div></section></div>
     <div class="modal-overlay" id="themeCreator" hidden><section class="modal-window theme-creator-window" role="dialog" aria-modal="true" aria-labelledby="creatorTitle"><div class="modal-titlebar"><span class="modal-kicker">CYBERGRID / LOCAL THEME LAB</span><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div><div class="modal-body"><div class="creator-layout"><div><p class="eyebrow">CUSTOM THEME</p><h2 id="creatorTitle">Make your own<br><em>signal.</em></h2><p class="creator-note">Saved in this browser only. Export the same 11-role JSON shape used by the Cybercore schema.</p><label class="field-label" for="customThemeName">THEME NAME</label><input class="theme-name-input" id="customThemeName" placeholder="MY-CUSTOM-THEME"><div class="swatch-editor" id="swatchEditor"></div><div class="creator-tools"><button class="button button-quiet" id="resetTheme" type="button">RESET</button><button class="button button-quiet" id="exportTheme" type="button">EXPORT JSON</button><button class="button button-primary" id="saveTheme" type="button">SAVE THEME</button></div></div><div class="creator-preview"><span class="install-label">LIVE PREVIEW</span><div class="preview-surface"><div class="preview-top"><span>CYBERGRID / CUSTOM</span><b>ONLINE</b></div><h3>System surface</h3><p>Every card, border, and signal repaints as you edit.</p><div class="preview-bars"><i></i><i></i><i></i></div><div class="preview-chip">SCHEMA READY</div></div></div></div></div></section></div>
-    <script src="app.js"></script>
+    <dialog id="commandDialog" class="command-dialog" aria-labelledby="commandTitle"><div class="lab-bar"><span id="commandTitle">SEARCH THE GRID</span><button id="closeCommand" type="button" aria-label="Close search">ESC</button></div><label class="sr-only" for="commandInput">Search systems or sections</label><input id="commandInput" type="search" placeholder="Where do you want to go?" autocomplete="off"><div id="commandResults"></div><p>Type to search · Tab to navigate · Enter to open</p></dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script src="app.js"></script><script src="command.js"></script>
     <script type="module" src="https://cybercore-tech.github.io/kit/contact.js"></script>
 </body>
 </html>
